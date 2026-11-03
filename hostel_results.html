@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HostelFinder | Matching Hostels</title>
+<style>
+:root{--cream:#fff8e8;--brown:#493018;--gold:#bd8122;--ink:#33271d;--muted:#6d6257}*{box-sizing:border-box}body{margin:0;background:#f8f3ea;color:var(--ink);font-family:"Segoe UI",Arial,sans-serif}.topbar{padding:16px 5%;background:linear-gradient(105deg,#fff8e8,#f5ebd2 58%,#ead9b5);border-bottom:1px solid #d7bd88;display:flex;justify-content:space-between;align-items:center}.brand{color:var(--brown);font-size:1.25rem;font-weight:800;text-decoration:none}.brand span{color:var(--gold)}.back{color:#704918;font-weight:700;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:42px 22px 70px}h1{margin:0;color:#4a311b;font-size:clamp(1.8rem,4vw,2.6rem)}.intro{color:var(--muted);margin:8px 0 22px}.notice{padding:13px 16px;background:#fff1ca;border-left:4px solid var(--gold);border-radius:6px;color:#63471f;margin-bottom:24px}.toolbar{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:18px;color:#65513a}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}.card{overflow:hidden;background:white;border-radius:10px;box-shadow:0 8px 25px rgba(68,45,22,.13)}.photo{height:210px;background-size:cover;background-position:center}.photo.one{background-image:url('low budget hostel.jpg')}.photo.two{background-image:url('bedroom inspiration.jpg')}.photo.three{background-image:url('WhatsApp Image 2026-11-02 at 17.42.25.jpeg')}.info{padding:20px}.info h2{font-size:1.25rem;margin:0 0 8px;color:#493018}.price{color:#986319;font-size:1.15rem;font-weight:800;margin:0 0 16px}.facts{display:grid;gap:9px;margin:0 0 18px}.facts div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #eee5d5;padding-bottom:7px}.facts dt{font-weight:650;color:#66533f}.facts dd{margin:0;text-align:right;color:#493018}.contact{display:block;padding:11px 14px;border-radius:7px;background:#70491f;color:#fff;text-align:center;text-decoration:none;font-weight:700}.contact:hover{background:#a36b24}.empty{padding:28px;background:white;border-radius:8px;color:#6d6257;text-align:center;grid-column:1/-1}[hidden]{display:none!important}@media(max-width:600px){.topbar{padding:14px 18px}.wrap{padding:30px 16px 50px}}
+</style>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index_01.html">Hostel<span>Finder</span></a><a class="back" href="index_01.html">← Back to home</a></header>
+<main class="wrap">
+<h1>Hostels matching your search</h1><p class="intro" id="searchSummary">Browse available accommodation near UCU Mukono.</p>
+<div class="notice"><strong>Sample listing details:</strong> Prices, vacancies and custodian contacts shown here need to be confirmed with each hostel before publishing.</div>
+<div class="toolbar"><span id="resultCount" aria-live="polite"></span><a class="back" href="index_01.html">Change search</a></div>
+<div class="grid" id="results">
+<article class="card" data-areas="main-gate bishop-tucker bugujju" data-rooms="single double"><div class="photo one" role="img" aria-label="Hostel bedroom"></div><div class="info"><h2>Low Budget Hostel</h2><p class="price">Price: Contact custodian</p><dl class="facts"><div><dt>Accommodation</dt><dd>Single or double room</dd></div><div><dt>Location</dt><dd>Near UCU, Mukono</dd></div><div><dt>Rooms available</dt><dd>Confirm with custodian</dd></div></dl><a class="contact" href="mailto:?subject=HostelFinder%20enquiry%20-%20Low%20Budget%20Hostel">Contact custodian</a></div></article>
+<article class="card" data-areas="main-gate tech-gate kauga" data-rooms="double"><div class="photo two" role="img" aria-label="Hostel room"></div><div class="info"><h2>Bedroom Inspiration Hostel</h2><p class="price">Price: Contact custodian</p><dl class="facts"><div><dt>Accommodation</dt><dd>Double room</dd></div><div><dt>Location</dt><dd>Mukono, near UCU</dd></div><div><dt>Rooms available</dt><dd>Confirm with custodian</dd></div></dl><a class="contact" href="mailto:?subject=HostelFinder%20enquiry%20-%20Bedroom%20Inspiration%20Hostel">Contact custodian</a></div></article>
+<article class="card" data-areas="bishop-tucker bugujju kauga" data-rooms="single self-contained"><div class="photo three" role="img" aria-label="Hostel accommodation"></div><div class="info"><h2>HostelFinder Student Residence</h2><p class="price">Price: Contact custodian</p><dl class="facts"><div><dt>Accommodation</dt><dd>Single or self-contained</dd></div><div><dt>Location</dt><dd>Near UCU Main Campus, Mukono</dd></div><div><dt>Rooms available</dt><dd>Confirm with custodian</dd></div></dl><a class="contact" href="mailto:?subject=HostelFinder%20enquiry%20-%20Student%20Residence">Contact custodian</a></div></article>
+<p class="empty" id="empty" hidden>No hostels match this area and room type. <a href="index_01.html">Change your search</a>.</p>
+</div>
+</main>
+<script>
+const params=new URLSearchParams(location.search),area=params.get('area')||'',room=params.get('room')||'';
+const areaNames={'main-gate':'Main Gate','bishop-tucker':'Bishop Tucker Area','tech-gate':'Tech Gate','bugujju':'Bugujju','kauga':'Kauga'};
+const roomNames={single:'Single Room',double:'Double Room','self-contained':'Self-Contained'};
+const cards=[...document.querySelectorAll('.card')],empty=document.getElementById('empty');let count=0;
+cards.forEach(card=>{const show=(!area||card.dataset.areas.split(' ').includes(area))&&(!room||card.dataset.rooms.split(' ').includes(room));card.hidden=!show;if(show)count++});
+document.getElementById('resultCount').textContent=`${count} matching hostel${count===1?'':'s'}`;
+document.getElementById('searchSummary').textContent=[areaNames[area],roomNames[room]].filter(Boolean).join(' · ')||'Browse available accommodation near UCU Mukono.';empty.hidden=count>0;
+</script>
+</body></html>

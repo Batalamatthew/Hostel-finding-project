@@ -9,14 +9,14 @@
 <style>
     * { box-sizing: border-box; }
     body { margin: 0; color: #fff; font-family: "Segoe UI", Tahoma, sans-serif; background: #24170e; }
-    .navbar { background: linear-gradient(105deg, #3b2515, #5a381d 58%, #70491f) !important; box-shadow: 0 3px 16px rgba(35, 20, 8, .3); border-bottom: 1px solid rgba(224, 177, 83, .55); }
-    .navbar-brand { color: #f1c86a !important; font-weight: 800; letter-spacing: .03em; text-shadow: 0 1px 10px rgba(241, 200, 106, .2); }
-    .navbar-brand span { color: #ffe29a; }
-    .navbar .nav-link { color: #f1c86a; font-weight: 650; transition: color .2s ease, text-shadow .2s ease; }
-    .navbar .nav-link:hover { color: #fff1c8; text-shadow: 0 0 12px rgba(255, 215, 128, .65); }
+    .navbar { background: linear-gradient(105deg, #fff8e8, #f5ebd2 58%, #ead9b5) !important; box-shadow: 0 3px 16px rgba(61, 43, 22, .16); border-bottom: 1px solid rgba(189, 129, 34, .35); }
+    .navbar-brand { color: #493018 !important; font-weight: 800; letter-spacing: .03em; text-shadow: 0 1px 10px rgba(241, 200, 106, .2); }
+    .navbar-brand span { color: #a86f16; }
+    .navbar .nav-link { color: #5c4229; font-weight: 650; transition: color .2s ease, text-shadow .2s ease; }
+    .navbar .nav-link:hover { color: #a86f16; text-shadow: 0 0 12px rgba(189, 129, 34, .28); }
     .navbar .navbar-toggler { border-color: #d5a849; }
     .navbar .navbar-toggler-icon { filter: invert(82%) sepia(38%) saturate(650%) hue-rotate(350deg) brightness(102%); }
-    .btn-outline-brand { color: #f1c86a; border: 1px solid #d5a849; background: rgba(255, 255, 255, .04); font-weight: 650; }
+    .btn-outline-brand { color: #704918; border: 1px solid #d5a849; background: rgba(255, 255, 255, .04); font-weight: 650; }
     .btn-outline-brand:hover { color: #3b2515; background: linear-gradient(135deg, #ffe29a, #d5a849); border-color: #ffe29a; box-shadow: 0 4px 14px rgba(213, 168, 73, .3); }
     .hero { min-height: 660px; height: calc(100vh - 76px); max-height: 900px; position: relative; display: flex; align-items: flex-start; justify-content: flex-start; padding: clamp(32px, 6vw, 78px) max(4.2%, calc((100% - 1380px) / 2)); background: linear-gradient(105deg, rgba(28,20,15,.88), rgba(47,31,16,.64) 58%, rgba(31,23,14,.44)), url('WhatsApp Image 2026-11-02 at 21.27.06.jpeg') center/cover no-repeat; }
     .hero-content { width: min(760px, 100%); text-align: left; padding-bottom: 180px; }
@@ -74,6 +74,19 @@
       .reveal-on-scroll { opacity: 1; transform: none; }
     }
     .search-status { margin: 20px 0 0; color: #70491f; font-weight: 600; text-align: center; }
+    .about-section { padding: 48px max(4.2%, calc((100% - 1180px) / 2)); color: #4a3521; background: #fff8e8; border-top: 1px solid rgba(189,129,34,.25); }
+    .about-section h2 { margin: 0 0 12px; color: #70491f; font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; }
+    .about-section p { max-width: 900px; margin: 0; color: #66533f; font-size: 1.05rem; line-height: 1.7; }
+    .how-it-works { padding: 64px max(4.2%, calc((100% - 1180px) / 2)); color: #493018; background: linear-gradient(135deg, #fffaf0, #f1e4c8); }
+    .how-it-works h2 { margin: 0 0 10px; color: #493018; text-align: center; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; }
+    .how-intro { margin: 0 auto 34px; max-width: 700px; color: #705a3c; text-align: center; line-height: 1.6; }
+    .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .how-step { padding: 26px 22px; background: rgba(255,255,255,.82); border: 1px solid rgba(189,129,34,.25); border-radius: 12px; box-shadow: 0 8px 22px rgba(68,45,22,.09); text-align: center; transition: transform .3s ease, box-shadow .3s ease; }
+    .how-step:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(68,45,22,.16); }
+    .step-number { display: inline-grid; place-items: center; width: 48px; height: 48px; margin-bottom: 14px; border-radius: 50%; color: #fff8e8; background: linear-gradient(135deg,#a36b24,#d5a849); font-size: 1.2rem; font-weight: 800; }
+    .how-step h3 { margin: 0 0 9px; color: #70491f; font-size: 1.12rem; }
+    .how-step p { margin: 0; color: #66533f; line-height: 1.6; }
+    @media(max-width:700px){.how-steps{grid-template-columns:1fr}.how-it-works{padding:46px 18px}}
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
@@ -82,7 +95,7 @@
 
   <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top px-3 px-lg-5">
-    <a class="navbar-brand" href="#home"><img src="WhatsApp Image 2026-11-02 at 13.25.00.jpeg" alt="Logo" width="60" height="40" class="d-inline-block align-text-top">Hostel<span>Finder</span></a>
+    <a class="navbar-brand" href="#home"><img src="WhatsApp Image 2026-11-02 at 13.25.00.jpeg" alt="Logo" width="80" height="40" class="d-inline-block align-text-top">Hostel<span>Finder</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
             aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -92,8 +105,8 @@
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#hostels">Hostels</a></li>
         <li class="nav-item"><a class="nav-link" href="#how">How it works</a></li>
-        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
       </ul>
       <div class="d-flex gap-2">
         <button class="btn btn-outline-brand" data-bs-toggle="modal" data-bs-target="#bookingsModal">
@@ -158,13 +171,22 @@
     </div>
     <div class="load-more-wrap"><button type="button" class="load-more-button">Load More Listings</button></div>
   </section>
+  <section class="how-it-works" id="how" aria-labelledby="how-title">
+    <h2 id="how-title">How HostelFinder Works</h2>
+    <p class="how-intro">Finding a student hostel near UCU Mukono is simple. Follow these three steps to find an option that suits you.</p>
+    <div class="how-steps">
+      <article class="how-step"><span class="step-number">1</span><h3>Search your preferences</h3><p>Choose a campus area and the type of accommodation you need to see matching hostel listings.</p></article>
+      <article class="how-step"><span class="step-number">2</span><h3>Compare your options</h3><p>Review each hostel’s location, accommodation type, price and available rooms. Confirm current details with the custodian.</p></article>
+      <article class="how-step"><span class="step-number">3</span><h3>Contact the custodian</h3><p>Use the listing contact link to ask questions, arrange a visit and discuss booking directly with the hostel custodian.</p></article>
+    </div>
+  </section>
   <section class="difference-section" aria-labelledby="difference-title">
     <h2 id="difference-title">What Sets HostelFinder Apart?</h2>
     <p>We make finding a student home near UCU Mukono easier with verified hostel options, clear prices and amenities, helpful location details, and a simple booking experience. Choose a place that fits your needs and budget with confidence.</p>
   </section>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const targets = document.querySelectorAll('.navbar, .hero-content, .hostel-listings, .hostel-card, .difference-section');
+    const targets = document.querySelectorAll('.navbar, .hero-content, .hostel-listings, .hostel-card, .how-it-works, .how-step, .difference-section');
     targets.forEach((element, index) => {
       element.classList.add('reveal-on-scroll');
       if (element.classList.contains('hostel-card')) element.style.transitionDelay = `${(index % 3) * 100}ms`;
@@ -185,39 +207,17 @@
   });
 </script>
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const areaFilter = document.getElementById('areaFilter');
-    const roomFilter = document.getElementById('roomFilter');
-    const searchButton = document.getElementById('searchButton');
-    const status = document.getElementById('searchStatus');
-    const cards = [...document.querySelectorAll('.hostel-card')];
-    const listings = document.querySelector('.hostel-listings');
-
-    // Match the three sample listings to the areas and room styles shown in the filters.
-    const listingData = [
-      { areas: ['main-gate', 'bishop-tucker', 'bugujju'], rooms: ['single', 'double'] },
-      { areas: ['main-gate', 'tech-gate', 'kauga'], rooms: ['double'] },
-      { areas: ['bishop-tucker', 'bugujju', 'kauga'], rooms: ['single', 'self-contained'] }
-    ];
-
-    function applyFilters() {
-      const area = areaFilter.value;
-      const room = roomFilter.value;
-      let visible = 0;
-      cards.forEach((card, index) => {
-        const data = listingData[index];
-        const matches = (!area || data.areas.includes(area)) && (!room || data.rooms.includes(room));
-        card.hidden = !matches;
-        if (matches) visible++;
-      });
-      status.textContent = visible ? `Showing ${visible} hostel${visible === 1 ? '' : 's'} matching your filters.` : 'No hostels match those filters. Try another area or room type.';
-      listings.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    searchButton.addEventListener('click', applyFilters);
-    areaFilter.addEventListener('change', applyFilters);
-    roomFilter.addEventListener('change', applyFilters);
-  });
+document.getElementById('searchButton').addEventListener('click', () => {
+  const params = new URLSearchParams({ area: document.getElementById('areaFilter').value, room: document.getElementById('roomFilter').value });
+  window.location.href = `hostel_results.html?${params.toString()}`;
+});
 </script>
+  <section class="about-section" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About HostelFinder</h2>
+    <p>HostelFinder helps UCU Mukono students find safe, comfortable and affordable accommodation near campus. Compare hostel options, amenities and locations, then choose a place that feels right for you.</p>
+  </section>
 </body>
 </html>
+
+
+
