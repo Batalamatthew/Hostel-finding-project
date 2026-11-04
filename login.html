@@ -96,39 +96,41 @@
       </div>
     </div>
   </div>
+</body><script>
+  const loginForm = document.getElementById('loginForm');
+  const signupForm = document.getElementById('signupForm');
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const loginForm = document.getElementById('loginForm');
-    const signupForm = document.getElementById('signupForm');
+  document.getElementById('showSignup').addEventListener('click', (e) => {
+    e.preventDefault();
+    loginForm.classList.add('d-none');
+    signupForm.classList.remove('d-none');
+  });
 
-    document.getElementById('showSignup').addEventListener('click', e => {
-      e.preventDefault();
-      loginForm.classList.add('d-none');
-      signupForm.classList.remove('d-none');
-    });
-    document.getElementById('showLogin').addEventListener('click', e => {
-      e.preventDefault();
-      signupForm.classList.add('d-none');
-      loginForm.classList.remove('d-none');
-    });
+  document.getElementById('showLogin').addEventListener('click', (e) => {
+    e.preventDefault();
+    signupForm.classList.add('d-none');
+    loginForm.classList.remove('d-none');
+  });
 
-    signupForm.addEventListener('submit', e => {
-      e.preventDefault();
-      if (document.getElementById('signupPassword').value !==
-          document.getElementById('confirmPassword').value) {
-        alert('Passwords do not match.');
-        return;
-      }
-      alert('Account created!');
-      signupForm.classList.add('d-none');
-      loginForm.classList.remove('d-none');
-    });
+  // Login: go to results page
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    window.location.href = 'hostel_results.html';
+  });
 
-    loginForm.addEventListener('submit', e => {
-      e.preventDefault();
-      window.location.href = 'index_01.html';
-    });
-  </script>
-</body>
+  // Register: check passwords match, then show login
+  signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const pw = document.getElementById('signupPassword').value;
+    const confirm = document.getElementById('confirmPassword').value;
+    if (pw !== confirm) {
+      alert('Passwords do not match');
+      return;
+    }
+    alert('Account created! Please log in.');
+    signupForm.classList.add('d-none');
+    loginForm.classList.remove('d-none');
+  });
+</script>
 </html>
+

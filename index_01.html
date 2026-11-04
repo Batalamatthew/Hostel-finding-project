@@ -15,6 +15,9 @@
     .navbar .nav-link { color: #5c4229; font-weight: 650; transition: color .2s ease, text-shadow .2s ease; }
     .navbar .nav-link:hover { color: #a86f16; text-shadow: 0 0 12px rgba(189, 129, 34, .28); }
     .navbar .navbar-toggler { border-color: #d5a849; }
+    .navbar-toggler { display: none; }
+    .navbar .navbar-collapse { display: flex !important; flex-basis: auto; }
+    .navbar .navbar-nav { flex-direction: row; gap: 12px; }
     .navbar .navbar-toggler-icon { filter: invert(82%) sepia(38%) saturate(650%) hue-rotate(350deg) brightness(102%); }
     .btn-outline-brand { color: #704918; border: 1px solid #d5a849; background: rgba(255, 255, 255, .04); font-weight: 650; }
     .btn-outline-brand:hover { color: #3b2515; background: linear-gradient(135deg, #ffe29a, #d5a849); border-color: #ffe29a; box-shadow: 0 4px 14px rgba(213, 168, 73, .3); }
@@ -22,7 +25,7 @@
     .hero-content { width: min(760px, 100%); text-align: left; padding-bottom: 180px; }
     .hero-content h1 { display: none; }
     .hero-content p { max-width: 1000px; margin: 0 0 36px; color: #fff9ed; font-size: clamp(1.15rem, 2.1vw, 1.55rem); line-height: 1.55; text-shadow: 0 2px 12px rgba(0,0,0,.65); }
-    .promise-label { margin-bottom: 16px !important; font-size: 1.1rem !important; }
+    .promise-label { margin-bottom: 16px !important; font-size: 1.2rem !important; }
     .features { display: grid; gap: 10px; color: #fff; font-size: clamp(1rem, 1.8vw, 1.3rem); font-weight: 700; }
     .features span { display: flex; align-items: center; gap: 12px; }
     .features span::before { content: "✓"; color: #e8b64e; font-size: 1.5rem; font-weight: 900; }
@@ -40,9 +43,11 @@
     .load-more-button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(82, 54, 25, .24); }
     .hostel-card { overflow: hidden; background: #fff; border-radius: 8px; box-shadow: 0 8px 25px rgba(68, 45, 22, .13); }
     .hostel-photo { height: 225px; position: relative; background-position: center; background-size: cover; }
-    .hostel-photo.one { background-image: url('low budget hostel.jpg'); }
-    .hostel-photo.two { background-image: url('bedroom inspiration.jpg'); }
-    .hostel-photo.three { background-image: url('WhatsApp Image 2026-11-02 at 17.42.25.jpeg'); }
+    .hostel-photo.one { background-image: url('Pameja girls.jpeg'); }
+    .hostel-photo.two { background-image: url('High field.jpeg'); }
+    .hostel-photo.three { background-image: url('Bahaza.jpeg'); }
+    .hostel-photo.four { background-image: url('The johns.jpeg'); }
+    .hostel-photo.five { background-image: url('Premium.jpeg'); }
     .available-tag { position: absolute; top: 16px; right: 16px; padding: 5px 12px; color: #fff; background: #a8753b; border-radius: 4px; font-size: .82rem; font-weight: 700; }
     .hostel-details { padding: 18px 20px 20px; }
     .hostel-details h3 { margin: 0 0 8px; color: #33271d; font-size: 1.1rem; font-weight: 650; }
@@ -73,7 +78,7 @@
       *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
       .reveal-on-scroll { opacity: 1; transform: none; }
     }
-    .search-status { margin: 20px 0 0; color: #70491f; font-weight: 600; text-align: center; }
+
     .about-section { padding: 48px max(4.2%, calc((100% - 1180px) / 2)); color: #4a3521; background: #fff8e8; border-top: 1px solid rgba(189,129,34,.25); }
     .about-section h2 { margin: 0 0 12px; color: #70491f; font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 800; }
     .about-section p { max-width: 900px; margin: 0; color: #66533f; font-size: 1.05rem; line-height: 1.7; }
@@ -89,14 +94,13 @@
     @media(max-width:700px){.how-steps{grid-template-columns:1fr}.how-it-works{padding:46px 18px}}
   </style>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"> </script>
 </head>
 <body>
 
   <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top px-3 px-lg-5">
     <a class="navbar-brand" href="#home"><img src="WhatsApp Image 2026-11-02 at 13.25.00.jpeg" alt="Logo" width="80" height="40" class="d-inline-block align-text-top">Hostel<span>Finder</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+    <button class="navbar-togg  ler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
             aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -124,8 +128,8 @@
       <p class="promise-label">Here’s what we promise:</p>
       
       <!-- Search Box -->
-      <div class="search-box">
-        <select id="areaFilter">
+      <form class="search-box" action="hostel_results.html" method="get">
+        <select id="areaFilter" name="area">
           <option value="">Select Campus Area / Gate</option>
           <option value="main-gate">Main Gate</option>
           <option value="bishop-tucker">Bishop Tucker Area</option>
@@ -134,14 +138,14 @@
           <option value="kauga">Kauga</option>
         </select>
 
-        <select id="roomFilter">
+        <select id="roomFilter" name="room">
           <option value="">Room Type</option>
           <option value="single">Single Room</option>
           <option value="double">Double Room</option>
           <option value="self-contained">Self-Contained</option>
         </select>
 
-        <button type="button" class="btn btn-primary" id="searchButton">Search Hostels</button>
+        <button type="submit" class="btn btn-primary" id="searchButton">Search Hostels</button>
       </div>
 
       <!-- Quick Feature Highlights -->
@@ -153,23 +157,33 @@
     </div>
   </header>
   <section class="hostel-listings" id="hostels">
-    <h2>Our available Hostels for Sale in Mukono</h2>
-    <p class="section-subtitle">The most comfortable hostels in Mukono!</p>
+    <h2>Our available Hostels for booking in Mukono</h2>
+    <p class="section-subtitle">The most comfortable hostels for your stay!</p>
     <div class="hostel-grid">
       <article class="hostel-card">
         <div class="hostel-photo one"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>Low Budget Hostel</h3><p class="hostel-location">Near UCU, Mukono</p><p class="hostel-desc">A comfortable, affordable student stay with essential amenities close to campus.</p></div>
+        <div class="hostel-details"><h3>Pameja Girls Hostel</h3><p class="hostel-location">After Bobics Restaurant, Bugujju</p><p class="hostel-desc">A comfortable, affordable student stay with essential amenities close to campus.</p></div>
       </article>
       <article class="hostel-card">
         <div class="hostel-photo two"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>Bedroom Inspiration Hostel</h3><p class="hostel-location">Mukono, near UCU</p><p class="hostel-desc">Bright, welcoming rooms designed for a relaxed and convenient student life.</p></div>
+        <div class="hostel-details"><h3>High Field Hostel</h3><p class="hostel-location">Near UCU Tech Park Gate</p><p class="hostel-desc">Bright, welcoming rooms designed for a relaxed and convenient student life.</p></div>
       </article>
       <article class="hostel-card">
         <div class="hostel-photo three"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>HostelFinder Student Residence</h3><p class="hostel-location">Near UCU Main Campus, Mukono</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
+        <div class="hostel-details"><h3>Bahaza Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
+      </article>
+      <article class="hostel-card">
+        <div class="hostel-photo four"><span class="available-tag">Available</span></div>
+        <div class="hostel-details"><h3>The John's Hostel</h3><p class="hostel-location">Across Mountain inn</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
+      </article>
+      <article class="hostel-card">
+        <div class="hostel-photo five"><span class="available-tag">Available</span></div>
+        <div class="hostel-details"><h3>Premium Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
       </article>
     </div>
-    <div class="load-more-wrap"><button type="button" class="load-more-button">Load More Listings</button></div>
+    <div class="load-more-wrap"><button type="button" class="load-more-button">Load More Listings</button>
+    <a href="hostel_results.html"></a>
+    </div>
   </section>
   <section class="how-it-works" id="how" aria-labelledby="how-title">
     <h2 id="how-title">How HostelFinder Works</h2>
@@ -184,40 +198,15 @@
     <h2 id="difference-title">What Sets HostelFinder Apart?</h2>
     <p>We make finding a student home near UCU Mukono easier with verified hostel options, clear prices and amenities, helpful location details, and a simple booking experience. Choose a place that fits your needs and budget with confidence.</p>
   </section>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const targets = document.querySelectorAll('.navbar, .hero-content, .hostel-listings, .hostel-card, .how-it-works, .how-step, .difference-section');
-    targets.forEach((element, index) => {
-      element.classList.add('reveal-on-scroll');
-      if (element.classList.contains('hostel-card')) element.style.transitionDelay = `${(index % 3) * 100}ms`;
-    });
-    if (!('IntersectionObserver' in window)) {
-      targets.forEach(element => element.classList.add('is-visible'));
-      return;
-    }
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
-    targets.forEach(element => observer.observe(element));
-  });
-</script>
-<script>
-document.getElementById('searchButton').addEventListener('click', () => {
-  const params = new URLSearchParams({ area: document.getElementById('areaFilter').value, room: document.getElementById('roomFilter').value });
-  window.location.href = `hostel_results.html?${params.toString()}`;
-});
-</script>
   <section class="about-section" id="about" aria-labelledby="about-title">
     <h2 id="about-title">About HostelFinder</h2>
     <p>HostelFinder helps UCU Mukono students find safe, comfortable and affordable accommodation near campus. Compare hostel options, amenities and locations, then choose a place that feels right for you.</p>
   </section>
 </body>
 </html>
+
+
+
 
 
 
