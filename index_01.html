@@ -43,11 +43,7 @@
     .load-more-button:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(82, 54, 25, .24); }
     .hostel-card { overflow: hidden; background: #fff; border-radius: 8px; box-shadow: 0 8px 25px rgba(68, 45, 22, .13); }
     .hostel-photo { height: 225px; position: relative; background-position: center; background-size: cover; }
-    .hostel-photo.one { background-image: url('Pameja girls.jpeg'); }
-    .hostel-photo.two { background-image: url('High field.jpeg'); }
-    .hostel-photo.three { background-image: url('Bahaza.jpeg'); }
-    .hostel-photo.four { background-image: url('The johns.jpeg'); }
-    .hostel-photo.five { background-image: url('Premium.jpeg'); }
+    .hostel-image {width: 100%; height: 100%; object-fit: cover; display: block;}
     .available-tag { position: absolute; top: 16px; right: 16px; padding: 5px 12px; color: #fff; background: #a8753b; border-radius: 4px; font-size: .82rem; font-weight: 700; }
     .hostel-details { padding: 18px 20px 20px; }
     .hostel-details h3 { margin: 0 0 8px; color: #33271d; font-size: 1.1rem; font-weight: 650; }
@@ -161,24 +157,44 @@
     <p class="section-subtitle">The most comfortable hostels for your stay!</p>
     <div class="hostel-grid">
       <article class="hostel-card">
-        <div class="hostel-photo one"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>Pameja Girls Hostel</h3><p class="hostel-location">After Bobics Restaurant, Bugujju</p><p class="hostel-desc">A comfortable, affordable student stay with essential amenities close to campus.</p></div>
+        <div class="hostel-photo">
+          <img src="Pameja girls.jpeg" alt="Pameja Girls Hostel" class="hostel-image"><span class="available-tag">Available</span></div>
+        <div class="hostel-details">
+          <h3>Pameja Girls Hostel</h3><p class="hostel-location">After Bobics Restaurant, Bugujju</p>
+          <p class="hostel-desc"> A comfortable, affordable student stay with essential amenities close to campus.</p>
+        </div>
+      </article>
+       <article class="hostel-card">
+        <div class="hostel-photo">
+          <img src="High field.jpeg" alt="High field Hostel" class="hostel-image"><span class="available-tag">Available</span></div>
+        <div class="hostel-details">
+          <h3>High Field Hostel</h3><p class="hostel-location">Near UCU Tech Park Gate</p>
+          <p class="hostel-desc">Bright, welcoming rooms designed for a relaxed and convenient student life.</p>
+        </div>
       </article>
       <article class="hostel-card">
-        <div class="hostel-photo two"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>High Field Hostel</h3><p class="hostel-location">Near UCU Tech Park Gate</p><p class="hostel-desc">Bright, welcoming rooms designed for a relaxed and convenient student life.</p></div>
+        <div class="hostel-photo">
+          <img src="Bahaza.jpeg" alt="Bahaza Hostel" class="hostel-image"><span class="available-tag">Available</span></div>
+        <div class="hostel-details">
+          <h3>Bahaza Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p>
+          <p class="hostel-desc"> A convenient option for students seeking a comfortable home near lectures and campus services.</p>
+        </div>
       </article>
       <article class="hostel-card">
-        <div class="hostel-photo three"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>Bahaza Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
+        <div class="hostel-photo">
+          <img src="The johns.jpeg" alt="The John's Hostel" class="hostel-image"><span class="available-tag">Available</span></div>
+        <div class="hostel-details">
+          <h3>The John's Hostel</h3><p class="hostel-location">Across Mountain inn</p>
+          <p class="hostel-desc"> A convenient option for students seeking a comfortable home near lectures and campus services.</p>
+        </div>
       </article>
       <article class="hostel-card">
-        <div class="hostel-photo four"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>The John's Hostel</h3><p class="hostel-location">Across Mountain inn</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
-      </article>
-      <article class="hostel-card">
-        <div class="hostel-photo five"><span class="available-tag">Available</span></div>
-        <div class="hostel-details"><h3>Premium Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p><p class="hostel-desc">A convenient option for students seeking a comfortable home near lectures and campus services.</p></div>
+        <div class="hostel-photo">
+          <img src="Bahaza.jpeg" alt="Bahaza Hostel" class="hostel-image"><span class="available-tag">Available</span></div>
+        <div class="hostel-details">
+          <h3>Premium Hostel</h3><p class="hostel-location">Near UCU Wandegeya Gate</p>
+          <p class="hostel-desc"> A convenient option for students seeking a comfortable home near lectures and campus services.</p>
+        </div>
       </article>
     </div>
     <div class="load-more-wrap"><button type="button" class="load-more-button">Load More Listings</button>
