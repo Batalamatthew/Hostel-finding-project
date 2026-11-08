@@ -1,5 +1,3 @@
-/* General page styling */
-
 * {
 
     box-sizing: border-box;
@@ -23,8 +21,6 @@ body {
     color: #333;
 
 }
-
-/* About section */
 
 .about-section {
 
@@ -54,8 +50,6 @@ body {
 
 }
 
-/* How it works section */
-
 .how-it-works {
 
     padding: 40px 20px;
@@ -84,8 +78,6 @@ body {
 
 }
 
-/* Individual steps */
-
 .how-step {
 
     background-color: white;
@@ -100,8 +92,6 @@ body {
 
 }
 
-/* Step number */
-
 .step-number {
 
     font-weight: bold;
@@ -112,8 +102,6 @@ body {
 
 }
 
-/* Step heading */
-
 .how-step h3 {
 
     font-size: 18px;
@@ -122,8 +110,6 @@ body {
 
 }
 
-/* Step description */
-
 .how-step p {
 
     font-size: 14px;
@@ -131,8 +117,6 @@ body {
     line-height: 1.5;
 
 }
-
-/* Responsive design for phones */
 
 @media (max-width: 700px) {
 
