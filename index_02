@@ -1,4 +1,92 @@
-/* General page styling */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+.navbar {
+
+    background-color: white;
+
+}
+
+.navbar-brand,
+
+.nav-link {
+
+    color: #493031;
+
+    text-decoration: none;
+
+}
+
+h1, h2, h3 {
+
+    color: #493031;
+
+}
+
+.hostel-card {
+
+    background-color: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+.hostel-card:hover {
+
+    box-shadow: 0 2px 5px #ccc;
+
+}
+
+.hostel-photo {
+
+    width: 100%;
+
+    border-radius: 5px;
+
+}
+
+.btn-primary,
+
+.load-more-button {
+
+    background-color: #493031;
+
+    color: white;
+
+    padding: 10px 15px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+.btn-primary:hover,
+
+.load-more-button:hover {
+
+    opacity: 0.8;
+
+}
+
+.reveal-on-scroll {
+
+    opacity: 1;
+
+    transform: none; 
+
+}
 
 * {
 
@@ -23,8 +111,6 @@ body {
     color: #333;
 
 }
-
-/* About section */
 
 .about-section {
 
@@ -54,8 +140,6 @@ body {
 
 }
 
-/* How it works section */
-
 .how-it-works {
 
     padding: 40px 20px;
@@ -84,8 +168,6 @@ body {
 
 }
 
-/* Individual steps */
-
 .how-step {
 
     background-color: white;
@@ -100,8 +182,6 @@ body {
 
 }
 
-/* Step number */
-
 .step-number {
 
     font-weight: bold;
@@ -112,8 +192,6 @@ body {
 
 }
 
-/* Step heading */
-
 .how-step h3 {
 
     font-size: 18px;
@@ -122,8 +200,6 @@ body {
 
 }
 
-/* Step description */
-
 .how-step p {
 
     font-size: 14px;
@@ -131,8 +207,6 @@ body {
     line-height: 1.5;
 
 }
-
-/* Responsive design for phones */
 
 @media (max-width: 700px) {
 
