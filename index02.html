@@ -91,3 +91,91 @@ section[id]{scroll-margin-top:70px;}
   box-shadow:0 8px 25px rgba(68,45,22,.13);
   transition:transform .3s, box-shadow .3s;
 }
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(68,45,22,.22);}
+.photo{position:relative;height:210px;background:linear-gradient(135deg,#a87629,#493018);}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;}
+.tag{
+  position:absolute;top:14px;right:14px;
+  background:#a8753b;color:#fff;
+  padding:.25rem .7rem;border-radius:4px;font-size:.8rem;font-weight:700;
+}
+.details{padding:1.1rem 1.2rem 1.3rem;}
+.details h3{margin:0 0 .4rem;font-size:1.1rem;color:#33271d;}
+.location{margin:0 0 .5rem;color:var(--muted);font-size:.92rem;}
+.rooms{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 .9rem;}
+.rooms span{font-size:.75rem;background:#f1e4c8;color:#5c4229;padding:.2rem .55rem;border-radius:4px;}
+.contact-link{
+  display:inline-block;padding:.45rem 1rem;border-radius:6px;
+  background:var(--brown);color:#fff;text-decoration:none;font-weight:600;font-size:.9rem;
+}
+.contact-link:hover{background:#a36b24;}
+
+/* ---------- CSS-only filtering ----------
+   When a dropdown option is selected, hide every card that doesn't match.
+   Needs a modern browser (Chrome 105+, Edge 105+, Safari 15.4+, Firefox 121+). */
+body:has(#areaFilter option[value="main-gate"]:checked)      .card:not([data-area="main-gate"]),
+body:has(#areaFilter option[value="wandegeya-gate"]:checked) .card:not([data-area="wandegeya-gate"]),
+body:has(#areaFilter option[value="bishop-tucker"]:checked)  .card:not([data-area="bishop-tucker"]),
+body:has(#areaFilter option[value="tech-gate"]:checked)      .card:not([data-area="tech-gate"]),
+body:has(#areaFilter option[value="bugujju"]:checked)        .card:not([data-area="bugujju"]),
+body:has(#areaFilter option[value="kauga"]:checked)          .card:not([data-area="kauga"]),
+body:has(#roomFilter option[value="single"]:checked)         .card:not([data-rooms~="single"]),
+body:has(#roomFilter option[value="double"]:checked)         .card:not([data-rooms~="double"]),
+body:has(#roomFilter option[value="self-contained"]:checked) .card:not([data-rooms~="self-contained"]){
+  display:none;
+}
+
+/* ---------- How it works ---------- */
+.how{background:linear-gradient(135deg,#fffaf0,#f1e4c8);}
+.how h2{text-align:center;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;max-width:1100px;margin:0 auto;}
+.step{
+  background:rgba(255,255,255,.85);border:1px solid rgba(189,129,34,.25);
+  border-radius:12px;padding:1.6rem 1.3rem;text-align:center;
+  box-shadow:0 8px 22px rgba(68,45,22,.09);
+}
+.num{
+  display:inline-grid;place-items:center;width:46px;height:46px;margin-bottom:.8rem;
+  border-radius:50%;color:#fff8e8;background:linear-gradient(135deg,#a36b24,var(--gold));
+  font-size:1.2rem;font-weight:800; 
+}
+.step h3{margin:0 0 .4rem;color:#70491f;}
+.step p{margin:0;color:#66533f;}
+
+/* ---------- Difference / About / Contact ---------- */
+.difference{
+  text-align:center;color:#fffaf0;
+  background:linear-gradient(rgba(43,29,17,.82),rgba(43,29,17,.82)),linear-gradient(120deg,#493018,#a87629);
+}
+.difference h2{margin:0 0 1rem;font-size:clamp(1.8rem,4vw,2.6rem);}
+.difference p{max-width:800px;margin:0 auto;font-size:1.15rem;}
+.about{background:var(--cream);border-top:1px solid rgba(189,129,34,.25);}
+.about p{max-width:850px;margin:0;color:#66533f;font-size:1.05rem;}
+.contact{text-align:center;color:#fff9ed;background:var(--dark);padding:3rem 5%;}
+.contact h2{color:#fff;}
+.contact small{display:block;margin-top:1.8rem;color:#bba98f;}
+
+/* ---------- Mobile ---------- */
+@media (max-width:850px){
+  .grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:700px){
+  .menu-toggle{display:block;}
+  .nav-links{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    flex-direction:column;gap:0;background:#fff8e8;
+    border-bottom:1px solid rgba(189,129,34,.35);
+  }
+  .nav-check:checked ~ .nav-links{display:flex;}
+  .nav-links a{display:block;padding:.9rem 5%;}
+  .hero{padding-bottom:15rem;}
+  .search-box select,.btn{flex-basis:100%;}
+  .steps{grid-template-columns:1fr;}
+}
+@media (max-width:580px){
+  .grid{grid-template-columns:1fr;}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{transition:none!important;animation:none!important;}
+}
