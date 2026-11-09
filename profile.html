@@ -38,7 +38,7 @@
       <a class="navbar-brand fw-bold" href="index_01.html">HostelFinder</a>
       <div class="ms-auto">
         <a href="hostel_results.html" class="btn btn-outline-light btn-sm me-2">Search</a>
-        <a href="login.html" class="btn btn-danger btn-sm">Log out</a>
+        <a href="login.html" id="logoutLink" class="btn btn-danger btn-sm">Log out</a>
       </div>
     </div>
   </nav>
@@ -51,12 +51,12 @@
             <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center mb-3" style="width:90px;height:90px;">
               <span class="fs-1">M</span>b
             </div>
-            <h3 class="fw-bold">Student Name</h3>
-            <p class="text-secondary">student@example.com</p>
+            <h3 class="fw-bold" id="profileUsername">Student Name</h3>
+            <p class="text-secondary" id="profileEmail">student@example.com</p>
 
             <ul class="list-group list-group-flush text-start mt-4">
               <li class="list-group-item bg-dark text-white border-secondary">University: UCU</li>
-              <li class="list-group-item bg-dark text-white border-secondary">Phone: 07XX XXX XXX</li>
+              <li class="list-group-item bg-dark text-white border-secondary">Phone: <span id="profilePhone">07XX XXX XXX</span></li>
               <li class="list-group-item bg-dark text-white border-secondary">Saved hostels: 0</li>
             </ul>
 
@@ -67,6 +67,30 @@
     </div>
   </div>
 
+<script>
+  let profile = null;
+  try {
+    profile = JSON.parse(localStorage.getItem("hostelFinderProfile") || "null");
+  } catch (error) {
+    profile = null;
+  }
+
+  const activeEmail = sessionStorage.getItem("hostelFinderLoggedInEmail");
+  if (profile && activeEmail && profile.email.toLowerCase() === activeEmail.toLowerCase()) {
+    document.getElementById("profileUsername").textContent = profile.username || "Username not provided";
+    document.getElementById("profileEmail").textContent = profile.email || "Email not provided";
+    document.getElementById("profilePhone").textContent = profile.phone || "Phone not provided";
+  } else {
+    document.getElementById("profileUsername").textContent = "Please log in to view your profile";
+    document.getElementById("profileEmail").textContent = "No active login";
+    document.getElementById("profilePhone").textContent = "No active login";
+  }
+
+  document.getElementById("logoutLink").addEventListener("click", function () {
+    sessionStorage.removeItem("hostelFinderLoggedInEmail");
+  });
+</script>
 </body>
 </html>
+
 

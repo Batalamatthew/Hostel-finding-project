@@ -81,11 +81,26 @@
 <script>
   document.getElementById("loginForm").addEventListener("submit", function (event) {
     event.preventDefault();
+    let profile;
+    try {
+      profile = JSON.parse(localStorage.getItem("hostelFinderProfile") || "null");
+    } catch (error) {
+      profile = null;
+    }
+
+    const email = document.getElementById("userEmail").value.trim().toLowerCase();
+    if (!profile || !profile.email || profile.email.trim().toLowerCase() !== email) {
+      alert("No registered profile was found for this email. Please register first or use your registered email.");
+      return;
+    }
+
+    sessionStorage.setItem("hostelFinderLoggedInEmail", profile.email);
     window.location.href = "profile.html";
   });
 </script>
 </body>
 </html>
+
 
 
 
