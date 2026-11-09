@@ -4,23 +4,14 @@ scroll-behavior: smooth;
 .navbar {
  background-color: white;
 }
-
 .navbar-brand,
-
 .nav-link {
-
-    color: #493031;
-
-    text-decoration: none;
-
+ color: #493031;
+ text-decoration: none;
 }
-
 h1, h2, h3 {
-
-    color: #493031;
-
+ color: #493031;
 }
-
 .hostel-card {
 
     background-color: white;
